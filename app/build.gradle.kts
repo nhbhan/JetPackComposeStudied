@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.hannhb.myapplication"
+    namespace = "com.hannhb.jettipappp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.hannhb.myapplication"
+        applicationId = "com.hannhb.jettipappp"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -66,4 +66,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    //Icons
+    implementation(libs.androidx.material.icons.extended)
 }

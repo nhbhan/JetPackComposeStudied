@@ -1,4 +1,4 @@
-package com.hannhb.myapplication
+package com.hannhb.jettipappp
 
 import org.junit.Test
 
