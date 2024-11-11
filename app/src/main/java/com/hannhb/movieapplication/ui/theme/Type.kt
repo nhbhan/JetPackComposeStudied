@@ -1,4 +1,4 @@
-package com.hannhb.myapplication.ui.theme
+package com.hannhb.movieapplication.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

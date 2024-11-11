@@ -1,4 +1,4 @@
-package com.hannhb.myapplication
+package com.hannhb.movieapplication
 
 import org.junit.Test
 
