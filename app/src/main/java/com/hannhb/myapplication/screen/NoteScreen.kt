@@ -57,10 +57,15 @@ fun NoteScreen(
     Column(modifier = Modifier.padding(6.dp)) {
         TopAppBar(
             title = {
-                Text(text = stringResource(id = R.string.app_name))
+                Text(text = stringResource(id = R.string.app_name),
+                    color = Color.Black
+                )
             },
             actions = {
-                Icon(imageVector = Icons.Rounded.Notifications, contentDescription = "Icon")
+                Icon(
+                    imageVector = Icons.Rounded.Notifications,
+                    contentDescription = "Icon",
+                    tint = Color.DarkGray)
             },
             colors = TopAppBarDefaults.topAppBarColors(Color(0xFFDADFE3))
         )

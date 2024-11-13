@@ -34,7 +34,11 @@ fun NoteInputText(
         label = { Text(text = label) },
         onValueChange = onTextChanged,
         colors = TextFieldDefaults.colors(
-            contentColorFor(backgroundColor = Color.Transparent)
+            contentColorFor(backgroundColor = Color.Black),
+            focusedContainerColor = Color.White,
+            unfocusedContainerColor = Color.White,
+            disabledContainerColor = Color.White,
+            unfocusedTextColor = Color.Black
         ),
         maxLines = maxLine,
         keyboardOptions = KeyboardOptions.Default.copy(
