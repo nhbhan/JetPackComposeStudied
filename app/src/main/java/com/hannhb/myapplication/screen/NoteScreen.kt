@@ -38,6 +38,7 @@ import com.hannhb.myapplication.components.NoteButton
 import com.hannhb.myapplication.components.NoteInputText
 import com.hannhb.myapplication.data.NoteDataSource
 import com.hannhb.myapplication.model.Note
+import com.hannhb.myapplication.util.timeToDate
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -174,7 +175,7 @@ fun NoteRow(
             )
 
             Text(
-                text = note.entryData.format(DateTimeFormatter.ofPattern("EEE, dd MM YYYY")),
+                text = timeToDate(note.entryData.time),
                 style = TextStyle(
                     fontSize = 12.sp,
                     fontWeight = FontWeight.Normal,

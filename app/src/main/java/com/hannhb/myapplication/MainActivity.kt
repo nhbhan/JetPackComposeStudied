@@ -11,6 +11,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -22,7 +23,9 @@ import com.hannhb.myapplication.model.Note
 import com.hannhb.myapplication.screen.NoteScreen
 import com.hannhb.myapplication.screen.NoteViewModel
 import com.hannhb.myapplication.ui.theme.MyApplicationTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +44,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun NoteApp(noteViewModel: NoteViewModel) {
-    val lstNote = noteViewModel.getAllNotes()
+    val lstNote = noteViewModel.lstNote.collectAsState().value
     NoteScreen(notes = lstNote,
         onAddNote = {noteViewModel.addNote(it)},
         onRemoveNote = {noteViewModel.removeNote(it)})
