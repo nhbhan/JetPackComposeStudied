@@ -115,7 +115,8 @@ fun LoginScreen() {
                         onNext = {}
                     ),
                     onValueChanged = { userNameState.value = it},
-                    value = userNameState.value
+                    value = userNameState.value,
+                    isPassword = false
                 )
 //                Spacer(modifier = Modifier.height(16.dp))
                 MyTextField(
@@ -125,12 +126,15 @@ fun LoginScreen() {
                         keyboardType = KeyboardType.Text
                     ),
                     keyboardActions = KeyboardActions(
-                        onDone = {}
+                        onDone = {
+                            localFocusManager.clearFocus()
+                        }
                     ),
                     onValueChanged = {passwordSate.value = it},
                     value = passwordSate.value,
                     trailingIcon = Icons.Rounded.Lock,
-                    maxLength = 8
+                    maxLength = 8,
+                    isPassword = true
                 )
 
                 if (imeVisible) {

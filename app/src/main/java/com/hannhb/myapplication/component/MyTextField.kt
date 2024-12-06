@@ -16,11 +16,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.max
@@ -36,8 +40,13 @@ fun MyTextField(
     trailingIcon: ImageVector? = null,
     value: String = "",
     onValueChanged:(String) -> Unit,
-    maxLength: Int = 50
+    maxLength: Int = 50,
+    isPassword: Boolean = false
 ) {
+    val isVisiblePassword = rememberSaveable{
+        mutableStateOf(false)
+    }
+
     Column(modifier = modifier.padding(12.dp)) {
         Text(text = label)
         Spacer(modifier = Modifier.height(10.dp))
@@ -47,7 +56,11 @@ fun MyTextField(
             keyboardOptions = keyboardOptions,
             keyboardActions = keyboardActions,
             readOnly = readOnly,
-
+            visualTransformation = if(isVisiblePassword.value || !isPassword) {
+                VisualTransformation.None
+            } else {
+                PasswordVisualTransformation()
+            }
         ) {
             Row(
                 modifier = Modifier
@@ -59,13 +72,15 @@ fun MyTextField(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Box(
-                    modifier = Modifier.weight(1f).padding(10.dp),
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(10.dp),
                     contentAlignment = Alignment.CenterStart
                 ) {
                     it.invoke()
                 }
                 trailingIcon?.let {
-                    IconButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = { isVisiblePassword.value = !isVisiblePassword.value }) {
                         Icon(
                             imageVector = trailingIcon,
                             contentDescription = null,
