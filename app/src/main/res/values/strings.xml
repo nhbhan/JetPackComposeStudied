@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="the_tolet">The Tolet</string>
+    <string name="find_your_house">Find Your House</string>
+    <string name="login">Login</string>
+    <string name="forgot_pass_word">Forgot Password?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="or_continue_with">Or continue with</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+    <string name="dont_have_acount">"Don't have account? "</string>
+    <string name="create_now">Create Now</string>
 </resources>
