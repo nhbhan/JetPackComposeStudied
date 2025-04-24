@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="answer"><![CDATA[
+    <b>Weather App v1.0</b>
+    <br>
+    https://openweatherapi.org
+]]></string>
 </resources>
